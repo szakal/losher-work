@@ -1,5 +1,8 @@
 package pl.com.losher.csveditor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.swing.*;
 
 /**
@@ -7,12 +10,14 @@ import javax.swing.*;
  */
 public class CSVEditor {
 
+    private static final Logger log = LoggerFactory.getLogger(CSVEditor.class);
+
     public static void main(String[] args) {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error during setting Look And Feel", e);
         }
 
         Launcher launcher = new Launcher();

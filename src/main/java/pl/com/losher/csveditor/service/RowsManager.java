@@ -1,7 +1,5 @@
 package pl.com.losher.csveditor.service;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import pl.com.losher.csveditor.model.Row;
 
 import java.util.List;
@@ -11,12 +9,10 @@ import java.util.Observer;
 /**
  * @author tomasz.kramarczyk
  */
-public class RowsManager extends Observable{
+public class RowsManager extends Observable {
 
     private List<Row> rows;
     private List<Observer> observers;
-
-    private final Log log = LogFactory.getLog(this.getClass());
 
     public void setRows(List<Row> rows) {
         this.rows = rows;

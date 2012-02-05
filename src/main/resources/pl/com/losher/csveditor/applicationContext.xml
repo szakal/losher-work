@@ -24,11 +24,11 @@
 
 
     <bean id="rowsManager" class="pl.com.losher.csveditor.service.RowsManager">
-          <property name="observers">
-              <list>
-                  <ref bean="table"/>
-              </list>
-          </property>
+        <property name="observers">
+            <list>
+                <ref bean="table"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="scrollPane" class="javax.swing.JScrollPane">

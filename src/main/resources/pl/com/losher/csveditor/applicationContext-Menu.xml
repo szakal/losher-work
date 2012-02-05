@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-     <!--konfiguracja menu "FILE"-->
+    <!--konfiguracja menu "FILE"-->
     <bean id="fileMenu" class="pl.com.losher.csveditor.view.menu.Menu" init-method="init">
         <property name="text" value="File"/>
         <!--lista elementow w tym menu-->

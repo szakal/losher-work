@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author tomasz.kramarczyk
- * //TODO jeszcze te klase trzeba przemyslec...
+ *         //TODO jeszcze te klase trzeba przemyslec...
  */
 public class Change {
 

@@ -1,10 +1,10 @@
 package pl.com.losher.csveditor.view.listeners;
 
 import com.csvreader.CsvReader;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import pl.com.losher.csveditor.service.RowsManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.com.losher.csveditor.model.Row;
+import pl.com.losher.csveditor.service.RowsManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +26,7 @@ public class OpenFileListener extends AbstractAction implements ActionListener {
     private Component parentComponent;
     private RowsManager rowsManager;
 
-    private final Log log = LogFactory.getLog(this.getClass());
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -72,9 +72,9 @@ public class OpenFileListener extends AbstractAction implements ActionListener {
 
 
             } catch (FileNotFoundException e1) {
-                e1.printStackTrace();
+                log.error("File " + file.getAbsolutePath() + File.pathSeparator + file.getName() + " not found", e);
             } catch (IOException e1) {
-                e1.printStackTrace();
+                log.error("Error during reading file " + file.getAbsolutePath() + File.pathSeparator + file.getName(), e);
             }
 
         } else {
