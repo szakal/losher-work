@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="fileMenu" class="pl.com.losher.csveditor.view.menu.Menu" init-method="init">
+        <property name="text" value="File"/>
+        <property name="jMenuItemList">
+            <list>
+                <bean class="pl.com.losher.csveditor.view.menu.MenuItem" init-method="init">
+                    <property name="text" value="Open File"/>
+                    <property name="actionListener" ref="openFileListener"/>
+                </bean>
+                <bean class="pl.com.losher.csveditor.view.menu.MenuItem" init-method="init">
+                    <property name="text" value="Exit"/>
+                    <property name="actionListener" ref="exitListner"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+</beans>

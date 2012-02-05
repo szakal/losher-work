@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="no"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <bean id="applicationFrame" class="pl.com.losher.csveditor.view.ApplicationFrame" init-method="init">
+        <property name="title" value="CSV Editor"/>
+        <property name="JMenuBar" ref="menuBar"/>
+        <property name="scrollPane" ref="scrollPane"/>
+    </bean>
+
+    <bean id="menuBar" class="pl.com.losher.csveditor.view.menu.MenuBar" init-method="init">
+        <property name="menuList">
+            <list>
+                <ref bean="fileMenu"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="fileChooser" class="javax.swing.JFileChooser">
+
+    </bean>
+
+
+    <bean id="rowsManager" class="pl.com.losher.csveditor.view.RowsManager">
+          <property name="observers">
+              <list>
+                  <ref bean="table"/>
+              </list>
+          </property>
+    </bean>
+
+    <bean id="scrollPane" class="javax.swing.JScrollPane">
+        <constructor-arg ref="table"/>
+    </bean>
+
+    <bean id="table" class="pl.com.losher.csveditor.view.table.Table">
+
+    </bean>
+</beans>
