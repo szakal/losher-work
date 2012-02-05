@@ -3,8 +3,8 @@ package pl.com.losher.csveditor.view.listeners;
 import com.csvreader.CsvReader;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import pl.com.losher.csveditor.view.RowsManager;
-import pl.com.losher.csveditor.view.model.Row;
+import pl.com.losher.csveditor.service.RowsManager;
+import pl.com.losher.csveditor.model.Row;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,7 +28,6 @@ public class OpenFileListener extends AbstractAction implements ActionListener {
 
     private final Log log = LogFactory.getLog(this.getClass());
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -40,14 +39,10 @@ public class OpenFileListener extends AbstractAction implements ActionListener {
             try {
                 fileReader = new FileReader(file);
 
-
+                //TODO - wyniesc cale czytanie i konstruowanie listy do jakiejs klasy
                 CsvReader csvReader = new CsvReader(fileReader);
                 csvReader.setDelimiter('\t');
-                boolean b = csvReader.readHeaders();
-
-                String[] headers = csvReader.getHeaders();
-                rowsManager.setHeaders(headers);
-
+                csvReader.readHeaders();
 
                 List<Row> rows = new ArrayList<Row>();
 

@@ -8,17 +8,16 @@ import java.util.List;
  */
 public class Menu extends JMenu {
 
-    private List<JMenuItem> jMenuItemList;
+    private List<JMenuItem> menuItems;
 
     public void init() {
-
-        for (JMenuItem jMenuItem : jMenuItemList) {
+        for (JMenuItem jMenuItem : menuItems) {
             this.add(jMenuItem);
         }
-
     }
 
-    public void setjMenuItemList(List<JMenuItem> jMenuItemList) {
-        this.jMenuItemList = jMenuItemList;
+    //ustawiam w springu
+    public void setMenuItems(List<JMenuItem> menuItems) {
+        this.menuItems = menuItems;
     }
 }

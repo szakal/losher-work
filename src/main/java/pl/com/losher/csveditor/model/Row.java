@@ -1,4 +1,4 @@
-package pl.com.losher.csveditor.view.model;
+package pl.com.losher.csveditor.model;
 
 /**
  * @author tomasz.kramarczyk

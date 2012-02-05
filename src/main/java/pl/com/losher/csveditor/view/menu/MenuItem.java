@@ -14,6 +14,7 @@ public class MenuItem extends JMenuItem {
         this.addActionListener(actionListener);
     }
 
+    //ustawiam w springu
     public void setActionListener(ActionListener actionListener) {
         this.actionListener = actionListener;
     }

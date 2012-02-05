@@ -6,7 +6,6 @@
 
 
     <bean id="exitListner" class="pl.com.losher.csveditor.view.listeners.ExitListener">
-
     </bean>
 
     <bean id="openFileListener" class="pl.com.losher.csveditor.view.listeners.OpenFileListener">

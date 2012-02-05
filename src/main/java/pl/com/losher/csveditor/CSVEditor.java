@@ -7,13 +7,10 @@ import javax.swing.*;
  */
 public class CSVEditor {
 
-
-
     public static void main(String[] args) {
 
         try {
-            UIManager.setLookAndFeel(
-                    UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -21,5 +18,5 @@ public class CSVEditor {
         Launcher launcher = new Launcher();
         launcher.launch();
     }
-    
+
 }

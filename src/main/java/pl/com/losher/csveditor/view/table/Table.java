@@ -2,12 +2,11 @@ package pl.com.losher.csveditor.view.table;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import pl.com.losher.csveditor.view.Change;
-import pl.com.losher.csveditor.view.model.ColumnDefinition;
-import pl.com.losher.csveditor.view.model.Row;
+import pl.com.losher.csveditor.service.Change;
+import pl.com.losher.csveditor.model.ColumnDefinition;
+import pl.com.losher.csveditor.model.Row;
 
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.util.Observable;
@@ -15,6 +14,7 @@ import java.util.Observer;
 
 /**
  * @author tomasz.kramarczyk
+ * //TODO na razie ta klasa jest zrabana...
  */
 public class Table extends JTable implements Observer {
 
@@ -24,7 +24,6 @@ public class Table extends JTable implements Observer {
 
     public void init() {
         JTableHeader jTableHeader = new JTableHeader();
-
     }
 
 

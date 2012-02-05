@@ -1,11 +1,9 @@
-package pl.com.losher.csveditor.view.model;
+package pl.com.losher.csveditor.model;
 
 /**
  * @author tomasz.kramarczyk
  */
 public enum ColumnDefinition {
-
-
 
     CHR_NAME(0),
     CHR_START(1),

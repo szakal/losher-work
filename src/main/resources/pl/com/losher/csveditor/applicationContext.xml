@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-
+    <!--Okienko aplikacji-->
     <bean id="applicationFrame" class="pl.com.losher.csveditor.view.ApplicationFrame" init-method="init">
         <property name="title" value="CSV Editor"/>
         <property name="JMenuBar" ref="menuBar"/>
@@ -20,11 +20,10 @@
     </bean>
 
     <bean id="fileChooser" class="javax.swing.JFileChooser">
-
     </bean>
 
 
-    <bean id="rowsManager" class="pl.com.losher.csveditor.view.RowsManager">
+    <bean id="rowsManager" class="pl.com.losher.csveditor.service.RowsManager">
           <property name="observers">
               <list>
                   <ref bean="table"/>
@@ -37,6 +36,7 @@
     </bean>
 
     <bean id="table" class="pl.com.losher.csveditor.view.table.Table">
-
     </bean>
+
+
 </beans>

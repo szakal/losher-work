@@ -18,11 +18,9 @@ public class ApplicationFrame extends JFrame {
         setVisible(true);
         setState(Frame.NORMAL);
 
-
         add(scrollPane);
-
-
-        show();
+//        show();
+        setVisible(true);
     }
 
 
