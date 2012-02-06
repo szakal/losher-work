@@ -16,6 +16,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import pl.com.losher.csveditor.view.table.Table;
 
 /**
  * @author tomasz.kramarczyk
@@ -24,8 +27,8 @@ public class OpenFileListener extends AbstractAction implements ActionListener {
 
     private JFileChooser fileChooser;
     private Component parentComponent;
-    private RowsManager rowsManager;
-
+    private Table table;
+    
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Override
@@ -43,29 +46,47 @@ public class OpenFileListener extends AbstractAction implements ActionListener {
                 CsvReader csvReader = new CsvReader(fileReader);
                 csvReader.setDelimiter('\t');
                 csvReader.readHeaders();
+                final String[] headers = csvReader.getHeaders();
 
-                List<Row> rows = new ArrayList<Row>();
-
-                while (csvReader.readRecord()) {
-                    Row row = new Row();
-                    row.setChrName(csvReader.get("chr_name"));
-                    row.setChrStart(csvReader.get("chr_start"));
-                    row.setChrEnd(csvReader.get("chr_end"));
-                    row.setRefBase(csvReader.get("ref_base"));
-                    row.setAltBase(csvReader.get("alt_base"));
-                    row.setHomHet(csvReader.get("hom_het"));
-                    row.setSnpQuality(csvReader.get("snp_quality"));
-                    row.setToDepth(csvReader.get("tot_depth"));
-                    row.setPercent(csvReader.get("%"));
-                    row.setDbSNP(csvReader.get("dbSNP"));
-                    row.setDbSNP131(csvReader.get("dbSNP131"));
-
-                    rows.add(row);
+                List<String[]> rows = new ArrayList<String[]>();
+                
+                while(csvReader.readRecord()){
+                    rows.add(csvReader.getValues());
                 }
+                
+                
+//                List<Row> rows = new ArrayList<Row>();
+
+                
+//                while (csvReader.readRecord()) {
+//                    Row row = new Row();
+//                    row.setChrName(csvReader.get("chr_name"));
+//                    row.setChrStart(csvReader.get("chr_start"));
+//                    row.setChrEnd(csvReader.get("chr_end"));
+//                    row.setRefBase(csvReader.get("ref_base"));
+//                    row.setAltBase(csvReader.get("alt_base"));
+//                    row.setHomHet(csvReader.get("hom_het"));
+//                    row.setSnpQuality(csvReader.get("snp_quality"));
+//                    row.setToDepth(csvReader.get("tot_depth"));
+//                    row.setPercent(csvReader.get("%"));
+//                    row.setDbSNP(csvReader.get("dbSNP"));
+//                    row.setDbSNP131(csvReader.get("dbSNP131"));
+//                    
+//
+//                    rows.add(row);
+//                }
 
                 csvReader.close();
+                
+                //TODO to sie nie udaje castoawnie, teoretycznie chyba powinno ;). bo mamy 
+                String[][] tableData = new String[rows.size()][];
+                
+                TableModel tableModel= new DefaultTableModel(rows.toArray(tableData), headers);
+               
+                table.setModel(tableModel); 
+               
 
-                rowsManager.setRows(rows);
+//                rowsManager.setRows(rows);
 
                 //This is where a real application would open the file.
                 log.info("Opening: " + file.getName() + ".");
@@ -91,7 +112,9 @@ public class OpenFileListener extends AbstractAction implements ActionListener {
         this.parentComponent = parentComponent;
     }
 
-    public void setRowsManager(RowsManager rowsManager) {
-        this.rowsManager = rowsManager;
+    public void setTable(Table table) {
+        this.table = table;
     }
+
+    
 }

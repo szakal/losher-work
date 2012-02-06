@@ -21,6 +21,7 @@ public class ApplicationFrame extends JFrame {
         add(scrollPane);
 //        show();
         setVisible(true);
+    
     }
 
 

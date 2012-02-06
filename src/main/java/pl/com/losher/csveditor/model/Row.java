@@ -5,6 +5,8 @@ package pl.com.losher.csveditor.model;
  */
 public class Row {
 
+    //TODO 1 rozbudowac o potrzebne pola
+    
     private String chrName;
     private String chrStart;
     private String dbSNP131;

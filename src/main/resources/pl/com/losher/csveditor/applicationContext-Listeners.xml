@@ -10,6 +10,6 @@
     <bean id="openFileListener" class="pl.com.losher.csveditor.view.listeners.OpenFileListener">
         <property name="fileChooser" ref="fileChooser"/>
         <property name="parentComponent" ref="applicationFrame"/>
-        <property name="rowsManager" ref="rowsManager"/>
+        <property name="table" ref="table"/>
     </bean>
 </beans>
